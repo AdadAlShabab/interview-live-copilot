@@ -1,6 +1,19 @@
 # Interview Copilot
 
-A local FastAPI and Gemini-powered interview assistant. The resume source is the project-root `data/resume.md`; resume data, vector indexes, transcripts, and usage records stay under the configured local data directory.
+## Technical README Description
+
+Interview Live Copilot is a Python-based interview assistance system designed to support candidates during live technical and behavioral interviews. The application ingests a candidate resume, extracts structured experience and story data, analyzes the target job description, and retrieves the most relevant evidence from a local vector store. When the interviewer asks a question, the system detects whether the input is a question, classifies its type, and generates a response grounded in the candidate’s actual experience and role requirements.
+
+The backend is built with FastAPI and uses Google Gemini for structured response generation, while a local SQLite database stores interview sessions and transcript metadata. The system also maintains daily and per-session usage tracking to protect free-tier limits and prevent excessive API usage. The frontend is a lightweight desktop/browser interface that surfaces live transcript updates and suggested answers in near real time.
+
+Key components include:
+- Resume extraction and parsing via Gemini
+- Job analysis and requirement matching
+- Retrieval of relevant candidate evidence from a FAISS-backed local index
+- Local question detection and classification heuristics
+- Conversation memory summarization for follow-up context
+- WebSocket-based real-time interview updates
+- Desktop wrapper using PyWebView for local execution
 
 ## Run in a browser
 
