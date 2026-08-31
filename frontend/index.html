@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interview Copilot</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">IC</span><span>Interview Copilot</span></div>
+    <div class="status"><span class="status-dot" id="status-dot"></span><span id="connection-label">Ready</span><span class="model" id="model-label">offline</span></div>
+  </header>
+
+  <main class="shell">
+    <section id="setup-view" class="view">
+      <div class="intro">
+        <p class="kicker">PRIVATE INTERVIEW WORKSPACE</p>
+        <h1>Bring your<br><em>best evidence.</em></h1>
+        <p class="lede">Load your career context, tune it to the role, and keep the useful details close when the conversation starts moving fast.</p>
+      </div>
+      <div class="setup-grid single-panel">
+        <article class="panel job-panel">
+          <div class="panel-heading"><span class="step">01</span><div><h2>The role</h2><p>Your local resume is loaded automatically</p></div></div>
+          <textarea id="job-description" placeholder="Paste the role, responsibilities, and requirements here..."></textarea>
+          <button class="button primary" id="analyze-button">Analyze fit <span>→</span></button>
+          <p class="feedback" id="job-feedback"></p><p class="feedback" id="resume-feedback">Loading local resume...</p>
+        </article>
+      </div>
+      <div class="profile-strip" id="profile-strip" hidden><span class="profile-avatar" id="profile-avatar">?</span><div><strong id="profile-name">Profile loaded</strong><small id="profile-role"></small></div><span class="ready-tag">READY</span></div>
+      <button class="button launch" id="launch-button" disabled>Open interview dashboard <span>↗</span></button>
+    </section>
+
+    <section id="dashboard-view" class="view" hidden>
+      <div class="dashboard-head"><div><p class="kicker">LIVE SESSION</p><h1 id="dashboard-title">Interview dashboard</h1></div><button class="button ghost" id="end-button">End session</button></div>
+      <div class="permission-banner" id="permission-banner" hidden>
+        <strong>Microphone access:</strong>
+        <span id="permission-message">Permission is required to listen to the Google Meet conversation.</span>
+      </div>
+      <div class="dashboard-grid">
+        <article class="panel transcript-panel"><div class="panel-heading compact"><div><h2>Live transcript</h2><p id="transcript-status">Waiting for audio or text</p></div><span class="listen-pill" id="listen-pill">IDLE</span></div><div class="transcript" id="transcript"></div><div class="composer"><select id="speaker-select" aria-label="Select speaker"><option value="interviewer">Interviewer</option><option value="candidate">Candidate</option></select><input id="transcript-input" placeholder="Type a transcript line to test the pipeline..."><button class="icon-button" id="send-button" title="Send transcript">↑</button></div></article>
+        <article class="panel answer-panel"><div class="panel-heading compact"><div><h2>Suggested response</h2><p id="answer-meta">Answers stay grounded in your profile</p></div></div><div class="answer-empty" id="answer-empty"><span>↗</span><p>Detected questions will appear here.</p></div><div id="answer-content" hidden><p class="answer-text" id="answer-text"></p><h3>Key points</h3><ul id="key-points"></ul><h3>Likely follow-ups</h3><ul id="followups"></ul></div></article>
+      </div>
+      <div class="usage-line"><span>Gemini usage</span><span id="usage-label">Loading...</span></div>
+    </section>
+  </main>
+  <script src="js/app.js"></script>
+</body>
+</html>

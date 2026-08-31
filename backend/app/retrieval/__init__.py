@@ -1,0 +1,1 @@
+"""Interview Copilot — retrieval package."""
