@@ -2,7 +2,7 @@
 
 ## Technical README Description
 
-Interview Live Copilot is a Python-based interview assistance system designed to support candidates during live technical and behavioral interviews. The application ingests a candidate resume, extracts structured experience and story data, analyzes the target job description, and retrieves the most relevant evidence from a local vector store. When the interviewer asks a question, the system detects whether the input is a question, classifies its type, and generates a response grounded in the candidate’s actual experience and role requirements.
+Interview Live Copilot is Python-based interview assistance system designed to support candidates during live technical and behavioral interviews. The application ingests a candidate resume, extracts structured experience and story data, analyzes the target job description, and retrieves the most relevant evidence from a local vector store. When the interviewer asks a question, the system detects whether the input is a question, classifies its type, and generates a response grounded in the candidate’s actual experience and role requirements.
 
 The backend is built with FastAPI and uses Google Gemini for structured response generation, while a local SQLite database stores interview sessions and transcript metadata. The system also maintains daily and per-session usage tracking to protect free-tier limits and prevent excessive API usage. The frontend is a lightweight desktop/browser interface that surfaces live transcript updates and suggested answers in near real time.
 
